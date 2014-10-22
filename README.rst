@@ -56,25 +56,24 @@ Create Roll
        # make pre-build
 
 #. Create a directory on a partition  to hold about 2.5Gb for creating and saving  RPMS 
-   outside of the roll.  The root directory is identified in src/matlab/version.mk as DATA
+   outside of the roll.  The root directory is identified in src/matlab/version.mk as ``DATA``
 
-#. After a successful install (check log) create rpms:
+#. After a successful install (check log) create rpms: ::
 
        # cd matlab/src/matlab
        # make pre-rpm
    
-    this will save the resulting rpms 
+   this will save the resulting rpms 
 
 
-#. from the top level of roll distro create a roll: ::
+#. From the top level of roll distro create a roll: ::
 
       # make roll
 
 Install Roll
 --------------
 
-Make sure that created matlab RPMS are available in $(DATA). The roll
-psot section expects DATA=/data/root
+Make sure that created matlab RPMS are available in $DATA. ::
 
       # ls /data/root
 
