@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+	<description>
+	MATLAB
+	</description>
+
+	<copyright>
+	</copyright>
+
+	<changelog>
+	</changelog>
+
+	<package>rocks-matlab</package>
+
+	<post>
+	</post>
+
+</kickstart>

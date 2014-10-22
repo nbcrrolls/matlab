@@ -1,0 +1,7 @@
+destinationFolder=PKGROOT
+fileInstallationKey=KEY
+agreeToLicense=yes
+outputFile=/tmp/matlab.log
+mode=silent
+licensePath=ROLLPATH/license.dat
+

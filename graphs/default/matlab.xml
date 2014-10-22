@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+	<description>
+	MATLAB
+	</description>
+
+	<copyright>
+	</copyright>
+
+	<changelog>
+	$Log:  $
+	</changelog>
+
+	<edge from="server" to="matlab-server" />
+	<edge from="base" to="matlab-common" />
+
+</graph>
