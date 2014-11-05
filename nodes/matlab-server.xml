@@ -14,8 +14,7 @@
 
 	<post>
 	ls /data/root/matlab
-	rpm -i /data/root/matlab/2012a/matlab-*.rpm
-	cp /data/root/matlab/license.dat /share/apps/matlab/2012a/licenses/network.lic 
+	rpm -i /data/root/matlab/2013a/matlab-*.rpm
 	</post>
 
 </kickstart>

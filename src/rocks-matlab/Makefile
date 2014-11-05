@@ -10,8 +10,8 @@ include Rules.mk
 
 SEDMAT = \
         -e 's%@MATLAB_HOME@%$(PKGROOT)%g' \
-        -e 's%@MCR@%$(MCR)%g' \
-        -e 's%@MATLAB_VERSION@%$(MATLAB_VERSION)%g' 
+        -e 's%@MCRVER@%mcr/$(MCRVER)%g' \
+        -e 's%@VERSION@%$(VERSION)%g' 
 
 version.mk: version.mk.in
 	cat version.mk.in ../version.mk > version.mk

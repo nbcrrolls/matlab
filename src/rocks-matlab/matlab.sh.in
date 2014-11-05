@@ -1,8 +1,9 @@
 # matlab roll
 
-export XAPPLRESDIR=@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/X11/app-defaults
-export PATH=${PATH}:@MATLAB_HOME@/@MATLAB_VERSION@/bin
-export LD_LIBRARY_PATH=@MATLAB_HOME@/@MATLAB_VERSION@/lib:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/runtime/glnxa64:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/bin/glnxa64:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/sys/os/glnxa64:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/sys/java/jre/glnxa64/jre/lib/amd64/server:@MATLAB_HOME@/@MATLAB_VERSION@/@MCR@/sys/java/jre/glnxa64/jre/lib/amd64:$LD_LIBRARY_PATH
+export XAPPLRESDIR=@MATLAB_HOME@/@VERSION@/@MCRVER@/X11/app-defaults
+
+export PATH=${PATH}:@MATLAB_HOME@/@VERSION@/bin
+export LD_LIBRARY_PATH=@MATLAB_HOME@/@VERSION@/lib:@MATLAB_HOME@/@VERSION@/@MCRVER@/runtime/glnxa64:@MATLAB_HOME@/@VERSION@/@MCRVER@/bin/glnxa64:@MATLAB_HOME@/@VERSION@/@MCRVER@/sys/os/glnxa64:@MATLAB_HOME@/@VERSION@/@MCRVER@/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:@MATLAB_HOME@/@VERSION@/@MCRVER@/sys/java/jre/glnxa64/jre/lib/amd64/server:@MATLAB_HOME@/@VERSION@/@MCRVER@/sys/java/jre/glnxa64/jre/lib/amd64:$LD_LIBRARY_PATH
 
 
 
