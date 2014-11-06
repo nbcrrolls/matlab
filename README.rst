@@ -58,8 +58,8 @@ Create Roll
        # make pre-build
        # make mcr
 
-  NOTE: as of 2013a targets ``pre-build `` and ``mcr`` don't work, matlab installer exits. 
-  Install matlab using Makefile commands for these targets (without -inputFile) via GUI.
+   NOTE: as of 2013a targets ``pre-build`` and ``mcr`` don't work, matlab installer exits. 
+   Install matlab using Makefile commands for these targets (without -inputFile) via GUI.
 
 #. Have a directory on a partition to hold ~5Gb for creating and saving RPMS 
    outside of the roll.  The root directory is identified in src/matlab/version.mk as DATA
