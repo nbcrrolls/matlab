@@ -13,8 +13,8 @@
 	</changelog>
 
 	<post>
-	ls /data/root/matlab
-	rpm -i /data/root/matlab/2013a/matlab-*.rpm
+	ls DATA
+	rpm -i DATA/MATLABVER/matlab-*.rpm
 	</post>
 
 </kickstart>

@@ -18,7 +18,7 @@ SEDSPEC += \
         -e "s%KEY%$(KEY)%g" \
 
 version.mk: version.mk.in
-	cat version.mk.in ../version.mk > version.mk
+	cat ../../matlab.mk version.mk.in > version.mk
 
 installer_input: installer_input.in
 	$(SED) $(SEDSPEC) $^ > $@
@@ -87,10 +87,17 @@ prep-rpm:: version.mk pre-build mcr
 	rm -rf $(PKGROOT)
 
 	# the $(DATA)  must have enough space ~5Gb for rpms
-	mkdir -p $(DATA)/$(NAME)/$(VERSION)/
-	-cp *.$(ARCH).rpm $(DATA)/$(NAME)/$(VERSION)/
+	mkdir -p $(DATA)/$(VERSION)/
+	-cp *.$(ARCH).rpm $(DATA)/$(VERSION)/
+
+build:
+	echo "run make pre-build and mcr targets by hand"
+
+rpm:: build
+
 
 install::
+	echo "Nothing to install"
 
 clean::
 	rm -rf installer_input version.mk

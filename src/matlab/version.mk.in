@@ -1,3 +1,4 @@
+VERSION = $(MATLABVER)
 NAME    = matlab
 RELEASE = 1
 DATA    = /data/root

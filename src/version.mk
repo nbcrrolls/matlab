@@ -1,3 +1,0 @@
-VERSION = 2013a
-MCRVER = v81
-MCR = MCR

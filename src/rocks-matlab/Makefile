@@ -7,14 +7,13 @@ REDHAT.ROOT = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
-
 SEDMAT = \
         -e 's%@MATLAB_HOME@%$(PKGROOT)%g' \
         -e 's%@MCRVER@%mcr/$(MCRVER)%g' \
         -e 's%@VERSION@%$(VERSION)%g' 
 
 version.mk: version.mk.in
-	cat version.mk.in ../version.mk > version.mk
+	cat version.mk.in ../../matlab.mk > version.mk
 
 matlab.sh: matlab.sh.in
 	$(SED) $(SEDMAT) $^ > $@
