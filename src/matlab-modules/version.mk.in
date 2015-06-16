@@ -1,0 +1,15 @@
+VERSION.MK.MASTER = $(REDHAT.ROOT)/matlab.mk
+VERSION.MK.INCLUDE = matlab.version.mk
+include $(VERSION.MK.INCLUDE) 
+
+PACKAGE     = matlab
+CATEGORY    = applications
+NAME        = $(PACKAGE)-module
+VERSION     = $(MATLABVER)
+RELEASE     = 0
+PKGROOT     = /opt/modulefiles/$(CATEGORY)/$(PACKAGE)
+
+MATLABDIR   = $(BASEDIR)/$(VERSION)
+
+RPM.REQUIRES    = environment-modules
+RPM.EXTRAS  = AutoReq:No

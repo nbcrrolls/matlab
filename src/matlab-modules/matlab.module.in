@@ -1,0 +1,7 @@
+#%Module1.0
+module-whatis "matlab"
+module-whatis "Version: @VERSION@"
+prepend-path PATH @MATLABDIR@/bin
+prepend-path LD_LIBRARY_PATH @MATLABDIR@/@MCRVER@/runtime/glnxa64:@MATLABDIR@/@MCRVER@/bin/glnxa64:@MATLABDIR@/@MCRVER@/sys/os/glnxa64
+
+setenv MLM_LICENSE_FILE @MATLABDIR@/licenses/network.lic:@MATLABDIR@/licenses/license.dat 
