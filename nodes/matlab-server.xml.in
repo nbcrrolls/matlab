@@ -12,9 +12,29 @@
 	<changelog>
 	</changelog>
 
+	<package>matlab-MATLABVER-toolbox-compiler</package>
+	<package>matlab-MATLABVER-toolbox-vision</package>
+	<package>matlab-MATLABVER-toolbox-simulink</package>
+	<package>matlab-MATLABVER-toolbox-images</package>
+	<package>matlab-MATLABVER-toolbox-comm</package>
+	<package>matlab-MATLABVER-toolbox-bioinfo</package>
+	<package>matlab-MATLABVER-toolbox-matlab</package>
+	<package>matlab-MATLABVER-toolbox-shared</package>
+	<package>matlab-MATLABVER-toolbox-sl3d</package>
+	<package>matlab-MATLABVER-toolbox</package>
+	<package>matlab-MATLABVER-mcr-MCRVER-bin</package>
+	<package>matlab-MATLABVER-mcr-MCRVER</package>
+	<package>matlab-MATLABVER-bin</package>
+	<package>matlab-MATLABVER-help-symbolic</package>
+	<package>matlab-MATLABVER-help-examples</package>
+	<package>matlab-MATLABVER-help-matlab</package>
+	<package>matlab-MATLABVER-help-simulink</package>
+	<package>matlab-MATLABVER-help-dsp</package>
+	<package>matlab-MATLABVER-help</package>
+	<package>matlab-MATLABVER-base</package>
+
 	<post>
-	ls DATA
-	rpm -i DATA/MATLABVER/matlab-*.rpm
 	</post>
+
 
 </kickstart>

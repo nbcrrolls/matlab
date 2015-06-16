@@ -1,3 +1,23 @@
-RPMS
+# build directory
+RPMS/
+SOURCES/
+BUILD/
+SPECS/
+disk*/
+*.iso
+
+_os
 _arch
-SRPMS
+_distribution
+.rpmmacros
+
+# ignore version, rules  files
+python.mk
+Rules-*.mk
+Rules.mk
+Rolls.mk
+roll*.mk
+rocks-*.mk
+roll-matlab*
+
+src/matlab/license.dat

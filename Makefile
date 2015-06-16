@@ -7,13 +7,15 @@
 include Rolls.mk
 include matlab.mk
 
-default: 
+preroll::
 	for i in `ls nodes/*.xml.in`; do \
 	    export o=`echo $$i | sed 's/\.in//'`; \
 	    cp $$i $$o; \
-	    sed -i "s/MATLABVER/$(MATLABVER)/g" $$o; \
-	    sed -i "s%DATA%$(DATA)%g" $$o; \
+	    sed -i "s/\$\(MATLABVER\)/$(MATLABVER)/g" $$o; \
+	    sed -i "s/\$\(MCRVER\)/$(MCRVER)/g" $$o; \
 	done
+
+default: 
 	$(MAKE) roll
 
 cvsclean::

@@ -1,4 +1,4 @@
-DATA = /data/root/matlab
-MATLABVER = 2013a
-MCRVER = v81
+MATLABVER = 2015a
+MCRVER = v85
 MCR = MCR
+BASEDIR=/state/partition1/apps/matlab

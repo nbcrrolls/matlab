@@ -10,29 +10,21 @@ Introduction
 ------------------
 This roll installs MATLAB  in /share/apps/matlab 
 Need an access to download matlab distro from UCSD ACT.
-Instructions are updated for 2013a (changed since  matlab 2012a)
+Instructions are updated for 2015a.
 
 Download
 ~~~~~~~~~~~
 
-#. get source ISO (~6Gb),  network.lic, FIL.tzt from https://matlab.ucsd.edu/software/ 
+#. Get source ISO (~6Gb), network.lic, FIK.txt from https://matlab.ucsd.edu/software/ 
 
-#. unpack ::
+#. Get Matlab Runtime Compiler (zip file) 
+   from http://www.mathworks.com/products/compiler/mcr/
+   Note mcr version from the download site, for example R2015a (8.5)
 
-	# cd <path-to-matlab-roll>/src/matlab
-	# mkdir matlab-2013a/
-	# mount -o loop /data/root/matlab/2013a/R2013A_UNIX.iso /mnt/cdrom/
-	# cp -p -r /mnt/cdrom/* matlab-2013a/
-	# cp /data/root/matlab/2013a/network.lic license.dat 
-	# cp /data/root/matlab/2013a/FIK.txt .
+#. Put ISO and zip in $DATA (defined in src/matlab/versin.mk.in). 
 
-   Create FileInstallationKey.txt from FIK.txt (key for specific matlab version) 
-
-   Example FileInstallationKey.txt: ::
-
-        11111-22222-33333-15778-53320-40678-52617-42297-51152-04249-33677-09537
-
-   Example License.lic: ::
+#. Copy network.lic to src/matlab/license.dat
+   Example license.dat: ::
 
         # MathWorks license passcode file.
         # LicenseNo: 206XXX   HostID: 782BCB3F1XXX
@@ -45,34 +37,31 @@ Download
         
         USE_SERVER
 
-#.  download from http://www.mathworks.com/products/compiler/mcr/
-    Matlab Runtime Compiler (zip file), put in matlab/src/matlab
+#. Create src/matlab/FileInstallationKey.txt from FIK.txt - use one line key for a specific matlab version.
 
+   Example FileInstallationKey.txt: ::
+
+        11111-22222-33333-15778-53320-40678-52617-42297-51152-04249-33677-09537
+
+
+#. Update matlab.mk with new matlab and mcr version
 
 Create Roll
 --------------
 
-#. Install matlab in /share/apps/matlab/$VERSION: ::
+#. Make sure there is enough space in  matlab roll directory to hold matlab RPMs (~6Gb),
+   roll ISOs (~6Gb).
 
-       # cd matlab/src/matlab
-       # make pre-build
-       # make mcr
+#. Make sure there is enough space in /var, /state/partition1/, /tmp for roll creation.
+   Reset TMPDIR to a partition that has enough space.  For example: ::
 
-   NOTE: as of 2013a targets ``pre-build`` and ``mcr`` don't work, matlab installer exits. 
-   Install matlab using Makefile commands for these targets (without -inputFile) via GUI.
+       # export TMPDIR=/state/partition1/var
 
-#. Have a directory on a partition to hold ~5Gb for creating and saving RPMS 
-   outside of the roll.  The root directory is identified in src/matlab/version.mk as DATA
+#. Create all needed RPMs from matlab distro.  The RPMs will be placed in RPMS/$(ARCH): ::
 
-#. Create a directory on a partition  to hold about 2.5Gb for creating and saving  RPMS 
-   outside of the roll.  The root directory is identified in src/matlab/version.mk as ``DATA``
+       # ./bootstrap.sh
 
-   After a successful install (check log) create rpms: ::
-
-       # cd matlab/src/matlab
-       # make prep-rpm
-   
-   this will save the resulting rpms 
+   Check /tmp/matlab.log and /tmp/malab-mcr.log files.
 
 
 #. From the top level of roll distro create a roll: ::
@@ -82,19 +71,14 @@ Create Roll
 Install Roll
 --------------
 
-Make sure that created matlab RPMS are available in $DATA. ::
-
-      # ls /data/root
-
 The matlab roll can be added to a live server ::
 
-      # rocks add roll matlab-*.x86_64.disk1.iso
+      # rocks add roll matlab*iso
       # rocks enable roll matlab
       # (cd /export/rocks/install; rocks create distro)
-      # yum clean all
-      # rocks run roll matlab | bash
+      # rocks run roll matlab > add-matlab.sh
       # bash add-roll.sh  > add-roll.out 2>&1
 
 Install roll on compute nodes: ::
 
-      # rocks run host compute login "yum clean all; yum install rocks-matlab"
+      # rocks run host compute login "yum clean all; yum install matlab-module"

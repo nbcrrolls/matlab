@@ -1,6 +1,18 @@
-VERSION = $(MATLABVER)
-NAME    = matlab
-RELEASE = 1
-DATA    = /data/root
+VERSION.MK.MASTER = $(REDHAT.ROOT)/matlab.mk
+VERSION.MK.INCLUDE = matlab.version.mk
+include $(VERSION.MK.INCLUDE)
+
+VERSION   = $(MATLABVER)
+NAME      = matlab
+RELEASE   = 0
+DATA      = /state/partition1/data
+VARDIR    = /state/partition1/var
+
+PKGROOT = $(BASEDIR)/$(VERSION)
+
+# put iso and mcr distro in this location for unpacking
+ISODISTRO = $(DATA)/$(VERSION)/R$(VERSION)-glnxa64.iso
+MCRDISTRO = $(DATA)/$(VERSION)/$(MCR)_R$(VERSION)_glnxa64_installer.zip
+
 
 RPM.EXTRAS = "Autoprov: 0"
