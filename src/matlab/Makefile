@@ -3,7 +3,12 @@
 # @Copyright@
 #
 
+# create KEY needed  for installer input file
 KEY=$(shell cat FileInstallationKey.txt)
+
+# substitute  name (as in NFS-mount) with actual dir
+# need for creating rpms and installing them on non-nfs partition
+PKGROOT=$(subst share,state/partition1,$(BASEDIR))/$(VERSION)
 
 REDHAT.ROOT = $(PWD)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
