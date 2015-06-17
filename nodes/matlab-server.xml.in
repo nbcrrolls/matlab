@@ -31,7 +31,7 @@
 	<package>matlab-MATLABVER-help-simulink</package>
 	<package>matlab-MATLABVER-help-dsp</package>
 	<package>matlab-MATLABVER-help</package>
-	<package>matlab-MATLABVER-base</package>
+	<package>matlab-MATLABVER</package>
 
 	<post>
 	</post>
