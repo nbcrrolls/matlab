@@ -8,8 +8,8 @@ MATLAB roll
 
 Introduction
 ------------------
-This roll installs MATLAB  in /share/apps/matlab 
-Need an access to download matlab distro from UCSD ACT.
+This roll installs MATLAB  in /share/apps/matlab  which is NSF mounted on all
+nodes.  Need an access to download matlab distro from UCSD ACT.
 Instructions are updated for 2015a.
 
 Download
@@ -61,24 +61,44 @@ Create Roll
 
        # ./bootstrap.sh
 
-   Check /tmp/matlab.log and /tmp/malab-mcr.log files.
+   Check /tmp/matlab.log and /tmp/malab-mcr.log files for errors.
 
 
 #. From the top level of roll distro create a roll: ::
 
       # make roll
 
+   There will be 6 ISO files created, ~1Gb each.
+
 Install Roll
 --------------
 
-The matlab roll can be added to a live server ::
+#. On frontend, the matlab roll can be added to a live server ::
 
       # rocks add roll matlab*iso
       # rocks enable roll matlab
       # (cd /export/rocks/install; rocks create distro)
       # rocks run roll matlab > add-matlab.sh
+
+Check how much space is in /var. When installing rpms need enough space, about 2 x size of rpm
+plus cache space for yum. The current matlab  roll can be installed with about 2.2 Gb in /var
+but additionl yum cache cleaning must be done. This is  enabled  via *yum clean all* command
+placed before and after installing each large rpm. Edit add-matlab.sh file and
+add cleanign statements around the following rpms: :: 
+
+      matlab-2015a-bin
+      matlab-2015a-help
+      matlab-2015a-help-examples
+      matlab-2015a-toolbox
+      matlab-2015a-toolbox-compiler
+      matlab-2015a-toolbox-vision
+
+After that can finish roll installing with : ::
+
       # bash add-roll.sh  > add-roll.out 2>&1
 
-Install roll on compute nodes: ::
+#. On frontend  add a correcrt license.dat file to /share/apps/matlab/<version>/licenses/
+
+#. On compute nodes the Install roll on compute nodes: ::
 
       # rocks run host compute login "yum clean all; yum install matlab-module"
